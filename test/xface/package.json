@@ -1,0 +1,11 @@
+{
+    "name": "test-yui-hook",
+    "version": "0.0.1",
+    "dependencies": {
+        "yui": "*",
+        "istanbul": ">=0.1.28"
+    },
+    "scripts": {
+        "test": "istanbul cover --no-default-excludes -v --post-require-hook=../../index.js ./test.js"
+    }
+}

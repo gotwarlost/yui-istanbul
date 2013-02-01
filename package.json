@@ -1,0 +1,29 @@
+{
+    "name": "yui-istanbul",
+    "version": "0.0.1",
+    "description": "YUI loader hook for istanbul coverage",
+    "main": "index.js",
+    "scripts":{
+        "pretest": "jshint --config ./node_modules/yui-lint/jshint.json ./index.js test/run.js",
+        "test": "node ./test/run.js"
+    },
+    "repository":{
+        "type": "git",
+        "url": "git@github.com:gotwarlost/yui-istanbul"
+    },
+    "keywords":[
+        "istanbul",
+        "coverage",
+        "yui"
+    ],
+    "devDependencies":{
+        "rimraf": "*",
+        "async": "*",
+        "jshint": "*",
+        "yui-lint": "*",
+        "istanbul": "*"
+    },
+    "author": "Krishnan Anantheswaran <kananthmail-github@yahoo.com>",
+    "license": "BSD"
+}
+

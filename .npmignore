@@ -1,0 +1,10 @@
+.npmignore
+.gitignore
+.travis.yml
+*.tar
+*.tgz
+*.log
+build/
+test/
+.idea/
+
