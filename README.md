@@ -1,4 +1,4 @@
-yui-istanbul
+yui-istanbul [![Build Status](https://secure.travis-ci.org/gotwarlost/yui-istanbul.png)](http://travis-ci.org/gotwarlost/yui-istanbul)
 ============
 
 YUI adaptor for istanbul factored out into its own module.
