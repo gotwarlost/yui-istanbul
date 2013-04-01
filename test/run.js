@@ -51,6 +51,14 @@ var legacyDir = 'legacy',
 
 async.series([
     function (cb) {
+        var fn = require('../index');
+        assert.ok(typeof fn === 'function');
+        assert.ok(typeof fn.yuiHook === 'function');
+        assert.equal(3, fn.length);
+        assert.equal(4, fn.yuiHook.length);
+        process.nextTick(cb);
+    },
+    function (cb) {
         runTests(legacyDir, legacyCallback.bind(null, cb));
     },
     function (cb) {

@@ -39,7 +39,7 @@ function getBasicHook(matchFn, transformFn, verbose) {
  * @param transformFn the transform function
  * @param verbose true for verbose logging
  */
-function yuiHook(YUI, matchFn, transformFn, verbose) {
+function cleanHook(YUI, matchFn, transformFn, verbose) {
     if (verbose) { console.log('Applying YUI post-load hook'); }
     YUI.setLoadHook(getBasicHook(matchFn, transformFn, verbose));
 }
@@ -67,6 +67,17 @@ function legacyHook(YUI, matchFn, transformFn, verbose) {
     };
 }
 
+function yuiHook(YUI, matchFn, transformFn, verbose) {
+    if (!YUI) {
+        return;
+    }
+    if (typeof YUI.setLoadHook === 'function') {
+        cleanHook(YUI, matchFn, transformFn, verbose);
+    } else {
+        legacyHook(YUI, matchFn, transformFn, verbose);
+    }
+}
+
 module.exports = function (matchFn, transformFn, verbose) {
     return function (file) {
         if (!file.match(yuiRegexp)) {
@@ -74,11 +85,10 @@ module.exports = function (matchFn, transformFn, verbose) {
         }
         var YMain = require(file),
             YUI = YMain.YUI;
-        if (typeof YUI.setLoadHook === 'function') {
-            yuiHook(YUI, matchFn, transformFn, verbose);
-        } else {
-            legacyHook(YUI, matchFn, transformFn, verbose);
-        }
+        yuiHook(YUI, matchFn, transformFn, verbose);
     };
 };
+
+module.exports.yuiHook = yuiHook;
+
 
