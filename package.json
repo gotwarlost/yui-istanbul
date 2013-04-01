@@ -1,6 +1,6 @@
 {
     "name": "yui-istanbul",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "YUI loader hook for istanbul coverage",
     "main": "index.js",
     "scripts":{
