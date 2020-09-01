@@ -2,7 +2,7 @@
     "name": "test-yui-hook",
     "version": "0.0.1",
     "dependencies": {
-        "yui": "<3.9",
+        "yui": "<3.19",
         "istanbul": ">=0.1.28"
     },
     "scripts": {
